@@ -1,25 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import style from "./style.css";
+import style from "./index.css";
 
-function Greeting() {
+function BookList() {
   return (
-    <>
-      {/* this is a jsx fragment */}
-      <div className="css">
-        <h4>hello react</h4>
-        <ul>
-          <li>something</li>
-        </ul>
-      </div>
-      <div>
-        <h3> another div</h3>
-        <ul>
-          <li>another list</li>
-        </ul>
-      </div>
-    </>
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
   );
 }
 
-ReactDOM.render(<Greeting />, document.getElementById("root"));
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
+const Image = () => (
+  <img
+    src="https://m.media-amazon.com/images/I/41KgFSvQqQL._AC_UL480_FMwebp_QL65_.jpg"
+    alt=""
+  />
+);
+const Author = () => <h4> nigel waite</h4>;
+const Title = () => <h1>Marketing services</h1>;
+ReactDOM.render(<BookList />, document.getElementById("root"));

@@ -20,30 +20,37 @@ function BookList() {
     <section className="booklist">
       <Book
         img={firstBook.img}
-        titile={firstBook.title}
+        title={firstBook.title}
         author={firstBook.author}
         price={firstBook.price}
-      />
+      >
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+          reprehenderit quidem non tenetur expedita aliquam eius animi quibusdam
+          hic cum?
+        </p>
+      </Book>
+
       <Book
         img={secondBook.img}
-        titile={secondBook.title}
+        title={secondBook.title}
         author={secondBook.author}
         price={secondBook.price}
-      />
+      ></Book>
     </section>
   );
 }
 
 const Book = (props) => {
+  const { img, title, author, price, children } = props;
   console.log(props);
   return (
     <article className="book">
-      <img src={props.img} alt="" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
-      <p>{props.job}</p>
-      <p>{props.titile}</p>
-      <p>{props.price}</p>
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      <h4>{price}</h4>
+      {children}
     </article>
   );
 };

@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import style from "./index.css";
 
+const title = "Ikigai";
+const author = "Hector gracia";
+const img =
+  "https://images-eu.ssl-images-amazon.com/images/I/81l3rZK4lnL._AC_UL906_SR906,600_.jpg";
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
       <Book />
     </section>
   );
@@ -15,19 +17,12 @@ function BookList() {
 
 const Book = () => {
   return (
-    <article>
-      <Image />
-      <Title />
-      <Author />
+    <article className="book">
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   );
 };
-const Image = () => (
-  <img
-    src="https://m.media-amazon.com/images/I/41KgFSvQqQL._AC_UL480_FMwebp_QL65_.jpg"
-    alt=""
-  />
-);
-const Author = () => <h4> nigel waite</h4>;
-const Title = () => <h1>Marketing services</h1>;
+
 ReactDOM.render(<BookList />, document.getElementById("root"));

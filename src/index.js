@@ -14,19 +14,27 @@ const books = [
     author: "Morgan housel",
     price: "35$",
   },
+  {
+    img: "https://images-eu.ssl-images-amazon.com/images/I/51S7KOWir7L._AC_UL906_SR906,600_.jpg",
+    title: "Atomic Habits",
+    author: "James Clear",
+    price: "30$",
+  },
 ];
-const names = ["aryan", "karan", "kabir"];
-const newName = names.map((name) => {
-  return <h1>{name}</h1>;
-  console.log(names);
-});
-console.log(newName);
+
 function BookList() {
-  return <section className="booklist">{newName}</section>;
+  return (
+    <section className="booklist">
+      {books.map((book) => {
+        const { img, title, author } = book;
+        return <Book book={book} />;
+      })}
+    </section>
+  );
 }
 
 const Book = (props) => {
-  const { img, title, author, price } = props;
+  const { img, title, author, price } = props.book;
   console.log(props);
   return (
     <article className="book">

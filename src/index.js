@@ -29,21 +29,33 @@ function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book key={book.id} book={book} />;
+        return <Book key={book.id} {...book}></Book>;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
-  const { img, title, author, price } = props.book;
-  console.log(props);
+const Book = ({ img, title, author, price }) => {
+  const clickHandler = (e) => {
+    console.log(e);
+    console.log(e.target);
+  };
+  const complex = (author) => {
+    console.log(author);
+  };
   return (
     <article className="book">
       <img src={img} alt="" />
       <h1>{title}</h1>
-      <h4>{author}</h4>
+      <h4 onClick={() => console.log(author)}>{author}</h4>
       <h4>{price}</h4>
+
+      <button type="button" onClick={clickHandler}>
+        Click me
+      </button>
+      <button type="button" onClick={() => complex(author)}>
+        complex example
+      </button>
     </article>
   );
 };
